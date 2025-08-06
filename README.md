@@ -52,20 +52,20 @@ graph TB
     A --> H[Module 7: System Snapshot]
     A --> I[Module 8: Skip Timer]
     A --> J[Module 9: Duplicate Detector]
-    
+
     B --> B1[O(1) add_song]
     B --> B2[O(n) delete/move]
     B --> B3[O(n) reverse]
-    
+
     C --> C1[O(1) push/pop]
     C --> C2[O(1) undo]
-    
+
     D --> D1[O(log n) insert]
     D --> D2[O(log n) search]
-    
+
     E --> E1[O(1) search by ID]
     E --> E2[O(1) search by title]
-    
+
     F --> F1[O(n log n) merge sort]
     F --> F2[O(n log n) quick sort]
 ```
