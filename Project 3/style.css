@@ -1,0 +1,468 @@
+/* ================================
+   RESPONSIVE ONE-PAGE WEBSITE STYLES
+   ================================ */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* ================================
+   GLOBAL STYLES & RESET
+   ================================ */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ================================
+   STICKY NAVIGATION BAR
+   ================================ */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    border-radius: 0 0 20px 20px;
+    transition: all 0.3s ease;
+}
+
+.brand {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ================================
+   NAVIGATION LINKS
+   ================================ */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-links li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.nav-links li a:hover::before {
+    left: 0;
+}
+
+.nav-links li a:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* ================================
+   HAMBURGER MENU STYLES
+   ================================ */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.nav-toggle-label:hover {
+    background: rgba(52, 152, 219, 0.1);
+}
+
+.nav-toggle-label span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #2c3e50;
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* ================================
+   RESPONSIVE DESIGN & MOBILE MENU
+   ================================ */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+        position: relative;
+    }
+    
+    .nav-links {
+        position: absolute;
+        top: calc(100% + 1rem);
+        right: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 0.98);
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 1rem 0;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        border-radius: 15px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        max-height: 0;
+        overflow: hidden;
+    }
+    
+    .nav-toggle:checked ~ .nav-links {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        max-height: 400px;
+    }
+    
+    .nav-toggle-label {
+        display: flex;
+    }
+    
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-links li a {
+        font-size: 1.1rem;
+        width: 90%;
+        display: block;
+        margin: 0.5rem auto;
+        padding: 1rem;
+        border-radius: 10px;
+    }
+    
+    /* Hamburger Animation - Cross Effect */
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+    }
+    
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* ================================
+   MAIN CONTENT & SECTIONS
+   ================================ */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+section {
+    margin-bottom: 5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 3rem 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+}
+
+section h1, section h2 {
+    margin-top: 0;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+section h1 {
+    font-size: 3rem;
+    text-align: center;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+section h2 {
+    font-size: 2.2rem;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+section p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+/* Services Section Styling */
+#services ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+#services li {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+#services li:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* ================================
+   FOOTER STYLES
+   ================================ */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #ecf0f1;
+    border-radius: 20px 20px 0 0;
+    margin-top: 3rem;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* ================================
+   CONTACT FORM STYLES
+   ================================ */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 500px;
+    margin: 2rem auto 0;
+}
+
+form input, form textarea {
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    transform: translateY(-2px);
+}
+
+form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+form button {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+}
+
+form button:active {
+    transform: translateY(-1px);
+}
+
+/* ================================
+   RESPONSIVE BREAKPOINTS
+   ================================ */
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+    main {
+        max-width: 95%;
+        padding: 1.5rem 0.5rem;
+    }
+    
+    section {
+        padding: 2rem 1.5rem;
+        margin-bottom: 3rem;
+    }
+    
+    section h1 {
+        font-size: 2.5rem;
+    }
+    
+    section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 500px) {
+    main {
+        padding: 1rem 0.3rem;
+    }
+    
+    section {
+        padding: 1.5rem 1rem;
+        margin-bottom: 2rem;
+        border-radius: 15px;
+    }
+    
+    section h1 {
+        font-size: 2rem;
+    }
+    
+    section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .brand {
+        font-size: 1.5rem;
+    }
+    
+    #services ul {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    form {
+        max-width: 100%;
+    }
+    
+    form input, form textarea, form button {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+/* ================================
+   SCROLL BEHAVIOR & ANIMATIONS
+   ================================ */
+@media (prefers-reduced-motion: no-preference) {
+    section {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    section:nth-child(1) { animation-delay: 0.1s; }
+    section:nth-child(2) { animation-delay: 0.2s; }
+    section:nth-child(3) { animation-delay: 0.3s; }
+    section:nth-child(4) { animation-delay: 0.4s; }
+    section:nth-child(5) { animation-delay: 0.5s; }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================
+   ACCESSIBILITY IMPROVEMENTS
+   ================================ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus styles for accessibility */
+.nav-toggle:focus + .nav-toggle-label {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+.nav-links a:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}

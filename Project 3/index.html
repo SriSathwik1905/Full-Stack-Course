@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FictionalBiz - Professional design agency offering web design, branding, marketing, and consulting services">
+    <meta name="keywords" content="web design, branding, marketing, consulting, design agency">
+    <title>FictionalBiz - Creative Design Agency</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="brand">FictionalBiz</div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="#home" aria-label="Go to home section">Home</a></li>
+                <li><a href="#about" aria-label="Go to about section">About</a></li>
+                <li><a href="#services" aria-label="Go to services section">Services</a></li>
+                <li><a href="#portfolio" aria-label="Go to portfolio section">Portfolio</a></li>
+                <li><a href="#contact" aria-label="Go to contact section">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="home">
+            <h1>Welcome to FictionalBiz</h1>
+            <p>Your premier creative design agency specializing in innovative solutions for modern businesses. We transform ideas into stunning digital experiences that captivate and convert.</p>
+            <p>🚀 Ready to elevate your brand? Let's create something amazing together!</p>
+        </section>
+        
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Founded in 2020, FictionalBiz has been at the forefront of creative design and digital innovation. Our team of passionate professionals combines artistic vision with technical expertise to deliver exceptional results.</p>
+            <p>We believe in the power of design to tell stories, build connections, and drive business success. Every project we undertake is an opportunity to push boundaries and exceed expectations.</p>
+            <p><strong>Our Mission:</strong> To empower businesses through outstanding design and strategic thinking.</p>
+        </section>
+        
+        <section id="services">
+            <h2>Our Services</h2>
+            <p>We offer a comprehensive range of creative services tailored to meet your business needs:</p>
+            <ul>
+                <li>🎨 Web Design & Development</li>
+                <li>🎯 Brand Identity & Logo Design</li>
+                <li>📈 Digital Marketing Strategy</li>
+                <li>💼 Business Consulting</li>
+            </ul>
+        </section>
+        
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            <p>Discover our latest projects and success stories. From startups to Fortune 500 companies, we've helped businesses across industries achieve their goals through exceptional design.</p>
+            <p><strong>Recent Highlights:</strong></p>
+            <p>✨ E-commerce platform redesign resulting in 45% increase in conversions<br>
+               ✨ Complete rebrand for tech startup leading to $2M Series A funding<br>
+               ✨ Mobile app UI/UX design with 4.8-star app store rating</p>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Ready to start your next project? We'd love to hear from you! Get in touch and let's discuss how we can bring your vision to life.</p>
+            <form action="#" method="POST" aria-label="Contact form">
+                <input type="text" name="name" placeholder="Your Name" required aria-label="Enter your name">
+                <input type="email" name="email" placeholder="Your Email" required aria-label="Enter your email address">
+                <textarea name="message" placeholder="Tell us about your project..." required aria-label="Enter your message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 FictionalBiz. All rights reserved. | Crafted with ❤️ for amazing businesses</p>
+    </footer>
+
+    <script>
+        // Enhanced smooth scrolling with offset for sticky header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const headerHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu after click
+                const navToggle = document.getElementById('nav-toggle');
+                if (navToggle.checked) {
+                    navToggle.checked = false;
+                }
+            });
+        });
+
+        // Form submission handler (for demonstration)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
