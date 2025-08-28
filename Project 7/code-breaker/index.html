@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Breaker – The Array Heist</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Code Breaker – The Array Heist</h1>
+    <div id="level-info"></div>
+    <div id="timer"></div>
+    <div id="array-display" class="array-row"></div>
+    <div class="panel">
+      <div class="inputs">
+        <label>Index: <input type="number" id="index-input" min="0" max="9"></label>
+        <label>Value: <input type="number" id="value-input" min="0" max="9"></label>
+        <button id="insert-btn">Insert</button>
+        <button id="delete-btn">Delete</button>
+      </div>
+      <div class="search-panel">
+        <label>Pattern: <input type="text" id="pattern-input" placeholder="e.g. 2,1,4"></label>
+        <button id="search-btn">Search</button>
+      </div>
+      <button id="reset-btn">Reset</button>
+    </div>
+    <div id="feedback"></div>
+    <div id="secret-pattern"></div>
+  </div>
+  <audio id="beep" src="beep.mp3" preload="auto"></audio>
+  <audio id="buzz" src="buzz.mp3" preload="auto"></audio>
+  <audio id="fanfare" src="fanfare.mp3" preload="auto"></audio>
+  <script src="script.js"></script>
+</body>
+</html>

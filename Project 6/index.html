@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #4CAF50;
+            padding: 20px 40px;
+            color: white;
+            text-align: center;
+        }
+        #myInput {
+            padding: 10px;
+            width: 60%;
+            border: none;
+            border-radius: 4px;
+        }
+        #addBtn {
+            padding: 10px 20px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        #addBtn:hover {
+            background: #0b7dda;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        ul li {
+            padding: 12px 8px 12px 40px;
+            background: #fff;
+            font-size: 18px;
+            transition: 0.2s;
+            position: relative;
+            border-bottom: 1px solid #ddd;
+        }
+        ul li.checked {
+            background: #888;
+            color: #fff;
+            text-decoration: line-through;
+        }
+        .close {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 22px;
+        }
+        .close:hover {
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div id = "myDiv" class = "header">
+        <h2>My To-Do List</h2>
+        <input type="text" id="myInput" placeholder="Add a new task...">
+        <button onclick="addTask()" id="addBtn">Add</button>
+    </div>
+    <ul id="myUL">
+        <li>Example Task 1</li>
+        <li>Example Task 2</li>
+        <li>Example Task 3</li>
+        <li>Example Task 4</li>
+        <li>Example Task 5</li>
+    </ul>
+    <script src="script.js"></script>
+</body>
+</html>
